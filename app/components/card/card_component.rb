@@ -58,7 +58,6 @@ module Card
           style: @styles
         )
       end
-
     end
   end
 end
