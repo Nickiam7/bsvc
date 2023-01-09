@@ -1,8 +1,8 @@
-# Bsvc
+# Bootstrap ViewComponents (BSVC)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bsvc`. To experiment with that code, run `bin/console` for an interactive prompt.
+Bootstrap ViewComponents is a component library built on [Bootstrap](https://github.com/twbs/bootstrap) and [VeiwComponent](https://github.com/viewcomponent/view_component).
 
-TODO: Delete this and the text above, and describe your gem
+BSVC offers a component based development workflow similar to React or Vue by neatly packaging Bootstrap into components to make your Rails UI development faster, easier and more fun!
 
 ## Installation
 
@@ -22,22 +22,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Examples for using components coming soon.
 
-## Development
+## Customizing Components
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+If you need to customize components you can copy them into your application.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### All Components
+
+To copy all compoents into your app run:
+
+```ruby
+rails g bsvc:components
+```
+
+This will copy over all of BSVC components and helpers. It will create a `components/` directory inside of `app/`. All helpers will be placed inside `app/helpers/`.
+
+### A Single Component
+
+```ruby
+rails g bsvc:component --name COMPONENT_NAME
+```
+`--name` should be the top level directory of the coponent you want in `app/components/`
+
+## Roadmap
+- Continue building out components
+- Continue creating usage doc
+- Continue add to README.md
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bsvc. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com//Nickiam7/bsvc. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Bsvc project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/bsvc/blob/master/CODE_OF_CONDUCT.md).
