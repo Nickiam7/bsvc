@@ -23,15 +23,17 @@ module Grid
       private
 
       def column_class_builder
-        "#{column_breakpoint} #{column_offset} #{@classes}"
+        "#{column_breakpoint} #{column_offset} #{@classes}".strip
       end
 
       def class_parser(option, klass)
-        option.map do |key, value|
-          if BREAK_POINTS.include?(key)
-            "#{klass}-#{key}-#{value} "
-          end
-        end.join('').strip
+        unless option.nil?
+          option.map do |key, value|
+            if BREAK_POINTS.include?(key)
+              "#{klass}-#{key}-#{value} "
+            end
+          end.join('').strip
+        end
       end
 
       def column_breakpoint
