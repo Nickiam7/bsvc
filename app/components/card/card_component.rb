@@ -19,7 +19,6 @@ module Card
     class HeaderComponent < ViewComponent::Base
 
       def initialize(**options)
-        @tag = options[:tag] || :h2
         @classes = options[:classes]
         @styles = options[:styles]
 
@@ -27,7 +26,7 @@ module Card
       end
 
       def call
-        content_tag(@tag,
+        content_tag(:div,
           content,
           class: Card.default_plus_passed_classes(
             @default_classses,
@@ -41,7 +40,6 @@ module Card
     class FooterComponent < ViewComponent::Base
 
       def initialize(**options)
-        @tag = options[:tag] || :div
         @classes = options[:classes]
         @styles = options[:styles]
 
@@ -49,7 +47,7 @@ module Card
       end
 
       def call
-        content_tag(@tag,
+        content_tag(:div,
           content,
           class: Card.default_plus_passed_classes(
             @default_classses,
