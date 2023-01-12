@@ -28,6 +28,8 @@ Or install it yourself as:
 
 Basic four column grid that shrinks to two, double stacked columns at the 768px (md) breakpont. Each column contains a heading component.
 
+- The last column shows an `h` component passing content in through a block rather than the `text:` option.
+
 ```ruby
 <%= container do %>
   <%= row do |c| %>
@@ -49,7 +51,7 @@ Basic four column grid that shrinks to two, double stacked columns at the 768px 
 <% end %>
 ```
 
-Compoments used:
+### Compoments used:
 - Container
   - Accepts two options, type of container (`sm, md, lg...fluid`) and any additional classes
 - Row
@@ -66,7 +68,6 @@ Compoments used:
     - tag (h1, h2, h3 etc)
     - classes
     - styles
-  - The last column shows an `h` component passing content in through a block rather than the `text:` option.
 
 ## Customizing Components
 
