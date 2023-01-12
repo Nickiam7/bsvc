@@ -20,9 +20,53 @@ Or install it yourself as:
 
     $ gem install bsvc
 
+
+**NOTE** BSVC does _not_ include Bootstrap for you, this is by design. BSVC will work however you include Bootstrap in your application, whether through sprockets, esbuild, import map or any other way.
+
+
 ## Usage
 
-TODO: Examples for using components coming soon.
+Basic four column grid that shrinks to two, double stacked columns at the 768px (md) breakpont. Each column contains a heading component.
+
+Compoments used:
+- Container
+  - Accepts two options, type of container (sm, md, lg...fluid) and any additional classes
+- Row
+  - Accepts additional classes (`row` is default) and styles.
+- Column
+  - Accepts:
+    - col (`md: 6`)
+    - offset (`md: 6`)
+    - classes
+    - styles
+- Heading (h)
+  - Accepts:
+    - text (only if no block is provided)
+    - tag (h1, h2, h3 etc)
+    - classes
+    - styles
+  - The last column shows an `h` component passing content in through a block rather than the `text:` option.
+
+```ruby
+<%= container do %>
+  <%= row do |c| %>
+    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+      <%= h(tag: 'h2', text: 'Column 1') %>
+    <% end %>
+    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+      <%= h(tag: 'h2', text: 'Column 2') %>
+    <% end %>
+    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+      <%= h(tag: 'h2', text: 'Column 3') %>
+    <% end %>
+    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+      <%= h(tag: 'h2') do %>
+        <i class="bi bi-4-circle-fill"></i> Column 4
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+```
 
 ## Customizing Components
 
@@ -36,7 +80,7 @@ To copy all compoents into your app run:
 rails g bsvc:components
 ```
 
-This will copy over all of BSVC components and helpers. It will create a `components/` directory inside of `app/`. All helpers will be placed inside `app/helpers/`.
+This will copy over all of BSVC components and helpers. It will create a `app/components/` directory in the root of directory. All helpers will be placed inside `app/helpers/`.
 
 ### A Single Component
 
