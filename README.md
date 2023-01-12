@@ -81,7 +81,7 @@ To copy all compoents into your app run:
 rails g bsvc:components
 ```
 
-This will copy over all of BSVC components and helpers. It will create a `app/components/` directory in the root of app. All helpers will be placed inside `app/helpers/`.
+This will copy over all of BSVC components and helpers. It will create an `app/components/` directory in the root of app. All helpers will be placed inside `app/helpers/`.
 
 ### A Single Component
 
