@@ -90,6 +90,18 @@ rails g bsvc:component --name COMPONENT_NAME
 ```
 `COMPONENT_NAME` should be the top level directory of the coponent you want in `app/components/`
 
+**NOTE** Running the `component` command on a component with child components will copy over all child components in the top level directory.
+
+### A Single Nested Component
+For components that are organized in nested directory you can pass the path of the component starting with the top level directory.
+
+```ruby
+rails g bsvc:component --name grid/container
+```
+
+This will grab only the container component and helper and place them in `app/components/grid` and `app/helpers/grid`.
+
+
 ## Roadmap
 - Continue building out components
 - Continue creating usage doc
