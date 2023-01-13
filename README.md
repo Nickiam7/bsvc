@@ -88,7 +88,7 @@ This will copy over all of BSVC components and helpers. It will create an `app/c
 ```ruby
 rails g bsvc:component --name COMPONENT_NAME
 ```
-`--name` should be the top level directory of the coponent you want in `app/components/`
+`COMPONENT_NAME` should be the top level directory of the coponent you want in `app/components/`
 
 ## Roadmap
 - Continue building out components
