@@ -8,17 +8,17 @@ module Bsvc
       class_option :name, type: :string, default: ''
 
       def copy_single_component
-        copy_components_to_app
-        copy_helpers_to_app
+        copy_component_to_app
+        copy_helper_to_app
       end
 
       private
 
-      def copy_components_to_app
+      def copy_component_to_app
         directory("app/components/#{@options[:name]}", "app/components/#{@options[:name]}")
       end
 
-      def copy_helpers_to_app
+      def copy_helper_to_app
         if @options[:name].include?('/')
           copy_file("app/helpers/#{@options[:name]}_helper.rb", "app/helpers/#{@options[:name]}_helper.rb")
         else
