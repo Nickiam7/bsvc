@@ -11,7 +11,6 @@ module Form
         @object = options[:object]
         @onchange = options[:onchange]
         @scope = options[:scope]
-        @more = options[:more]
       end
 
       def call
