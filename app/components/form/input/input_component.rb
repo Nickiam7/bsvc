@@ -4,31 +4,37 @@ module Form
   module Input
     class InputComponent < ViewComponent::Base
       def initialize(**options)
-        @type = options[:type]
-        @placeholder = options[:placeholder]
-        @classes = options[:classes]
         @method = options[:method]
         @object = options[:object]
-        @onchange = options[:onchange]
         @scope = options[:scope]
-      end
-
-      def call
-        text_input
+        @type = options.dig(:html, :type)
+        @floating = options.dig(:html, :floating)
+        @classes = options.dig(:html, :class)
+        @placeholder = options.dig(:html, :placeholder)
+        @onchange = options.dig(:html, :onchange)
+        @html = options[:html]
       end
 
       private
 
       def text_input
         if scoped?
-          @scope.text_field(@method, {type: @type, onchange: @onchange, class: "form-control #{@classes}".strip })
+          @scope.text_field(@method, @html)
         else
-          text_field(@object, @method, {type: @type, onchange: @onchange, class: "form-control #{@classes}".strip })
+          text_field(@object, @method, @html)
         end
       end
 
       def scoped?
         @scope.present?
+      end
+
+      def floating_label_id
+        if scoped?
+          @scope.options[:html][:id]
+        else
+          "#{@object.to_s}_#{@method.to_s}"
+        end
       end
     end
   end

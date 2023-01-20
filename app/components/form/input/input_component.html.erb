@@ -1,0 +1,8 @@
+<% if @floating %>
+  <div class="form-floating">
+    <%= text_input %>
+    <label for="<%= floating_label_id %>"><%= @placeholder %></label>
+  </div>
+<% else %>
+  <%= text_input %>
+<% end %>
