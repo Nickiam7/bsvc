@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Form
+module Forms
   module Input
     class InputComponent < ViewComponent::Base
       def initialize(**options)
@@ -8,11 +8,12 @@ module Form
         @object = options[:object]
         @scope = options[:scope]
         @type = options.dig(:html, :type)
-        @floating = options.dig(:html, :floating)
         @classes = options.dig(:html, :class)
+        @floating = options.dig(:html, :floating)
         @placeholder = options.dig(:html, :placeholder)
         @onchange = options.dig(:html, :onchange)
         @html = options[:html]
+        classes_builder
       end
 
       private
@@ -33,7 +34,13 @@ module Form
         if scoped?
           @scope.options[:html][:id]
         else
-          "#{@object.to_s}_#{@method.to_s}"
+          "#{@object}_#{@method}"
+        end
+      end
+
+      def classes_builder
+        if @html[:class]
+          @html[:class] = "form-control #{@classes}".strip
         end
       end
     end
