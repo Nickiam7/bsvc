@@ -5,5 +5,11 @@ module Grid
         yield(c)
       end
     end
+
+    def column(c, **options)
+      c.with_column(**options) do
+        yield
+      end
+    end
   end
 end
