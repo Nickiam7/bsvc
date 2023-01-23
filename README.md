@@ -33,16 +33,16 @@ Basic four column grid that shrinks to two, double stacked columns at the 768px 
 ```ruby
 <%= container do %>
   <%= row do |c| %>
-    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+    <%= column(c, col: { md: 6, lg: 3 }) do %>
       <%= h(tag: 'h2', text: 'Column 1') %>
     <% end %>
-    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+    <%= column(c, col: { md: 6, lg: 3 }) do %>
       <%= h(tag: 'h2', text: 'Column 2') %>
     <% end %>
-    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+    <%= column(c, col: { md: 6, lg: 3 }) do %>
       <%= h(tag: 'h2', text: 'Column 3') %>
     <% end %>
-    <%= c.with_column(col: { md: 6, lg: 3 }) do %>
+    <%= column(c, col: { md: 6, lg: 3 }) do %>
       <%= h(tag: 'h2') do %>
         <i class="bi bi-4-circle-fill"></i> Column 4
       <% end %>
