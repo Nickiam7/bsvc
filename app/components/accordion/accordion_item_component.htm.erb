@@ -1,0 +1,24 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" <%= id %>>
+    <button
+      class="<%= "accordion-button #{active_item? ? nil : 'collapsed'}".strip %>"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#<%= @target %>"
+      aria-expanded="<%= active_item? ? 'true' : 'false' %>"
+      aria-controls="<%= @target %>"
+    >
+      <%= @title %>
+    </button>
+  </h2>
+  <div
+    id="<%= @target %>"
+    class="<%= "accordion-collapse collapse #{active_item? ? 'show' : nil}".strip %>"
+    aria-labelledby="<%= @id %>"
+    data-bs-parent="<%= "##{@parent}" %>"
+  >
+    <div class="accordion-body">
+      <%= content %>
+    </div>
+  </div>
+</div>
