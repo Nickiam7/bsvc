@@ -23,12 +23,11 @@ Or install it yourself as:
 
 **NOTE:** BSVC does _not_ include Bootstrap for you, this is by design. BSVC will work however you include Bootstrap in your application, whether through sprockets, esbuild, import map or any other way.
 
-
 ## Usage
 
 Basic four column grid that shrinks to two, double stacked columns at the 768px (md) breakpont. Each column contains a heading component.
 
-- The last column shows an `h` component passing content in through a block rather than the `text:` option.
+**NOTE:** The last column shows a heading component (`h`) passing content in through a block rather than the `text:` option.
 
 ```ruby
 <%= container do %>
@@ -90,10 +89,10 @@ rails g bsvc:component --name COMPONENT_NAME
 ```
 `COMPONENT_NAME` should be the top level directory of the coponent you want in `app/components/`
 
-**NOTE** Running the `component` command on a component with child components will copy over all child components in the top level directory.
+**NOTE:** Running the `component` command on a parent component with nested child components will copy over all child components in the top level directory.
 
-### A Single Nested Component
-For components that are organized in nested directory you can pass the path of the component starting with the top level directory.
+### A Single Nested Child Component
+For nested child components, pass the path of the component starting with the top level directory.
 
 ```ruby
 rails g bsvc:component --name grid/container
