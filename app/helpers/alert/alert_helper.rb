@@ -2,7 +2,7 @@
 
 module Alert
   module AlertHelper
-    def alert(**options)
+    def alert_message(**options)
       if block_given?
         render(Alert::AlertComponent.new(**options)) do
           yield
